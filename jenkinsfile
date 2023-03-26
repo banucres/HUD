@@ -1,13 +1,8 @@
 pipeline {
     agent any
-    paprameters{
+    parameters{
         string(name: 'SPEC',defaultValue: "cypress/integration/**/**",description: "Enter the script path")
         choice(name: 'BROWSER',choices: ['chrome','edge'],description: "choice the browser where you can execute.")
-    }
-    options {
-        // Timeout counter starts AFTER agent is allocated
-        // timeout(time: 1, unit: 'SECONDS')
-        ansiColor('xterm')
     }
     stages {
         stage('Build') {
